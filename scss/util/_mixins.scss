@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+@mixin mqboi($break) {
+  @media (min-width: map-get($breakpoints, $break)) {
+    @content;
+  }
+}
+
+@mixin flexboi( $flex: flex,
+              $just: null,
+              $align: null,
+              $dir: null,
+              $wrap: null,
+              $gap: null,) {
+  display: $flex;
+  justify-content: $just;
+  align-items: $align;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  gap: $gap;
+}
+
+@mixin gridboi( $clmns: null, 
+              $rows: null, 
+              $areas: null, 
+              $gap: null) {
+  display: grid;
+  grid-template-columns: $clmns;
+  grid-template-rows: $rows;
+  grid-template-areas: $areas;
+  gap: $gap;
+}

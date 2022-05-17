@@ -1,0 +1,14 @@
+/*----------------------
+Main
+----------------------*/
+
+@use "../util" as *;
+
+header {
+  height: 100px;
+  background-color: grey;
+}
+
+img {
+  border-radius: 50%;
+}
