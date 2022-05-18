@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- font-family: 'Titillium Web', sans-serif; -->
+
+
   <link rel="stylesheet" href="css/style.css">
+
   <script src="https://kit.fontawesome.com/2365d2b9a6.js" crossorigin="anonymous"></script>
+
   <!--Change Icon-->
   <title>Employee Directory</title>
+
 </head>
 <body> <!-- Keep simple for submission -->
 
@@ -17,35 +27,44 @@
   <header>
     <div class='header-container'>
       <h1>EMPLOYEE DIRECTORY</h1>
-      <div class="header-interactables">
+      <div class="options">
+        <div class="search-quantity-options">
+          <!--------- Search Bar --------->
+            <div class="search-container"
+          <label for="searchBar">Search for Users:</label>
+            <input id="searchBar" class="user-search" type="search" autocomplete="off">
+          </div>
 
-        <!--------- Search Bar --------->
-        <label for="searchBar">Search for Users:</label>
-        <input id="searchBar" class="user-search" type="search" autocomplete="off">
-
-        <!--------- View Options --------->
-        <div class="options">
-
+          <!--------- Quantity Selector --------->
           <div class="quantity-option">
             <label for="quantity-selector"># of Employees:</label>
             <input type="number" id="quantity-selector" min="10" max="5000">
             <button class="generate-btn">Generate</button>
           </div>
+        </div>
 
+        
+        <div class="view-options">
+
+          <!--------- Turn Page --------->
+          <div class="paging-btns">
+            <button class="page-left-btn">
+              <i class="fa-solid fa-caret-left"></i>
+            </button>
+            <button class="page-right-btn">
+              <i class="fa-solid fa-caret-right"></i>
+            </button>
+          </div>
+
+          <!--------- Layout --------->
           <div class="layout-theme-options">
             <button id="layout-rows-btn">
               <i class="fa-solid fa-align-justify"></i>
             </button> 
             <button id="layout-grid-btn">
               <i class="fa-solid fa-table-cells"></i>
-            </button> 
-            <select id="theme-selector">
-              <option value="lgt">Light</option>
-              <option value="drk">Dark</option>
-              <option value="spc">Space</option>
-            </select>
+            </button>
           </div>
-
         </div>
       </div>
     </div>
@@ -62,10 +81,7 @@
         <!-- insert employee cards -->
       </div>
 
-      <div class="paging-btns">
-        <button class="page-left-btn">&#60;</button>
-        <button class="page-right-btn">&#62;</button>
-      </div>
+      
     </section>
 
     <!--------- Modal --------->
@@ -73,12 +89,22 @@
       <!--  dynamically alter the info here when 
             displaying modals. -->
       <dialog class="modal">
-        <button class="close-modal-btn">&#10006;</button>
-        <div class="modal-card-insert">
-          <!-- insert modal info -->
+        <div class="modal-clip-insert">
+          <button class="close-modal-btn">
+            <i class="fa-solid fa-xmark fa-lg"></i>
+          </button>
+          <div class="modal-card-insert">
+            <!-- insert modal info -->
+          </div>
+          <div class="modal-btns">
+            <button class="previous-modal-btn">
+              <i class="fa-solid fa-caret-left fa-xl"></i>
+            </button>
+            <button class="next-modal-btn">
+              <i class="fa-solid fa-caret-right fa-xl"></i>
+            </button>
+          </div>
         </div>
-        <button class="previous-modal-btn">&#60;</button>
-        <button class="next-modal-btn">&#62;</button>
       </dialog>
     </section>
 

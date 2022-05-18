@@ -1,5 +1,28 @@
 /*----------------------
-Button
+Inputs and Buttons
 ----------------------*/
 
 @use "../util" as *;
+
+button, input, select {
+  height: 36px;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  border: none;
+}
+
+button {
+  width: 36px;
+}
+
+.generate-btn {
+  width: initial;
+  padding: 0.5em;
+}
+
+#quantity-selector {
+  text-align: center;
+}
+
+

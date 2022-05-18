@@ -30,3 +30,14 @@
   grid-template-areas: $areas;
   gap: $gap;
 }
+
+// @mixin colorTheme($element, $color) {
+//   .#{element} {
+//     color: $color;
+//     background-color: lighten($color, 30%);
+//   }                 
+// }
+
+// @each $theme, $color in $themes {
+//   @include colorTheme($theme, $color);
+// }

@@ -1,0 +1,21 @@
+/*----------------------
+Typography
+----------------------*/
+
+* {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+}
+
+a, p {
+  line-height: 1.2em;
+  letter-spacing: .04em;
+}
+
+a {
+  text-decoration: none;
+}

@@ -21,8 +21,10 @@ totalPages = Math.ceil(numOfEmployees / pageLength);
 let isFilterActive = false;
 currentCardLayout = 'grid';
 
+// logs number of data points for testing 
 function logPageData() {
-  console.log(  ` %c- # of Employees: ${numOfEmployees}`,'color: lightgreen','\n',
+  console.log(  ` %c- # of Employees: ${numOfEmployees}`,
+                    'color: lightgreen','\n',
                 `- Max Employees/Page: ${pageLength}`,'\n',
                 `- Current Page: ${currentPage}`,'\n',
                 `- # of Pages: ${totalPages}`
@@ -54,12 +56,29 @@ quantityInput.addEventListener('keyup', () => {
   }
 })
 
-generateBtn.addEventListener('click', () => {
+// sets quanity and calcs # of pages, then fetchs data
+function newFetchRequest() {
   numOfEmployees = newQuantity;
   totalPages = Math.ceil(numOfEmployees / pageLength);
   quantityInput.placeholder = numOfEmployees;
   fetchData();
+}
+
+// sets number of employees to the temp value  
+// and launches api call
+generateBtn.addEventListener('click', () => {
+  newFetchRequest();
 }); 
+
+// allows user to press enter while
+// rather than just pressing the generate button
+quantityInput.addEventListener('keyup', (e) => {
+  // key check to prevent fetch on every keyup
+  if (e.key == 'Enter') {
+    newFetchRequest();
+    quantityInput.blur();
+  }
+});
 
 /*-----------------------------
 Fetch and Organize API Data
@@ -217,8 +236,8 @@ function generateHTML(employees) {
       let imgTmb = p.picture.thumbnail;
       let imgMed = p.picture.medium;
       let imgLg = p.picture.large;
-      let fn = p.name.first;
-      let ln = p.name.last;
+      let fn = p.name.first.toUpperCase();
+      let ln = p.name.last.toUpperCase();
       let email = p.email;
       let city = p.location.city;
       let phone = p.phone;
@@ -229,18 +248,22 @@ function generateHTML(employees) {
       // construct and insert card
       peopleGrid.innerHTML +=  `
         <div id="${fn.toLowerCase()}${ln.toLowerCase()}" class="card card-${currentCardLayout}">
-          <img class="card-img-tmb" src="${imgTmb}" alt="A photo of ${fn} ${ln}"> 
-          <img class="card-img-med" src="${imgMed}" alt="A photo of ${fn} ${ln}"> 
-          <img class="card-img-lg" src="${imgLg}" alt="A photo of ${fn} ${ln}"> 
-          <div class="card-text-1">
-            <h3 class="card-name">${fn} ${ln}</h3>
-            <a class="card-email" href="mailto:${email}">${email}</a>
-            <p class="card-city">${city}</p>
+          <div class="card-images"> 
+            <img class="card-img-tmb" src="${imgTmb}" alt="A photo of ${fn} ${ln}"> 
+            <img class="card-img-med" src="${imgMed}" alt="A photo of ${fn} ${ln}"> 
+            <img class="card-img-lg" src="${imgLg}" alt="A photo of ${fn} ${ln}"> 
           </div>
-          <div class="card-text-2">
-            <p class="card-phone">${phone}</p>
-            <p class="card-address">${address}</p>
-            <p class="card-dob">${dob}</p>
+          <div class="card-text">
+            <div class="card-text-1">
+              <h3 class="card-name">${fn} ${ln}</h3>
+              <a class="card-email" href="mailto:${email}">${email}</a>
+              <p class="card-city">${city}</p>
+            </div>
+            <div class="card-text-2">
+              <p class="card-phone">${phone}</p>
+              <p class="card-address">${address}</p>
+              <p class="card-dob">DOB: ${dob}</p>
+            </div>
           </div>
         </div>
       `;
@@ -254,8 +277,7 @@ Search Filter
 
 const searchBar = document.getElementById('searchBar');
 
-
-// keyup allows active filtering
+// keyup allows live filtering
 searchBar.addEventListener('keyup', (e) => {
   // key check to prevent duplicate event firing
   if (e.key !== 'Enter') {
@@ -398,6 +420,3 @@ function openNextModal() {
     
   }
 }
-
-
-

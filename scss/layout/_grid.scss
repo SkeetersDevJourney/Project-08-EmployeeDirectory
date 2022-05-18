@@ -4,8 +4,13 @@ Main
 
 @use "../util" as *;
 
+.header-container, .directory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .directory-container {
-  height: calc(100vh - 100px);
+  padding: 10px;
   @include flexboi(
     flex,
     space-between,
@@ -13,21 +18,12 @@ Main
   );
 }
 
-#grid-container {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.paging-btns {
-  margin-top: auto;
-  margin-bottom: 200px;
-}
-
 .row-layout {
   background-color: salmon;
   @include gridboi(
     1fr,
     auto,
+    $gap: 5px
   );
 }
 
@@ -36,12 +32,23 @@ Main
   @include gridboi(
     1fr 1fr,
     auto,
+    $gap: 10px
   );
 }
 
 @include mqboi('med') {
   .row-layout {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include mqboi('lg') {
+  .row-layout {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .grid-layout {
