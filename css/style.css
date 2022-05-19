@@ -304,6 +304,9 @@ a {
   text-decoration: none;
   color: #ac2c88;
 }
+a:hover {
+  color: #d866b8;
+}
 
 /*----------------------
 Header
@@ -348,19 +351,12 @@ header h1 {
   }
 }
 /*----------------------
-Main
+Main Grid
 ----------------------*/
 html {
   background-color: #0b3634;
 }
 
-img {
-  border-radius: 50%;
-}
-
-/*----------------------
-Main
-----------------------*/
 .header-container, .directory-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -412,9 +408,11 @@ Cards
   background-color: #020b0b;
   caret-color: transparent;
 }
-.card .card-images,
-.card .card-text-1,
-.card .card-text-2 {
+.card .card-text,
+.card .card-text-2,
+.card .card-city,
+.card .card-name,
+.card .card-images {
   pointer-events: none;
 }
 .card .card-email {
@@ -422,7 +420,7 @@ Cards
 }
 
 .card-row, .card-grid {
-  box-shadow: inset 0 0 15px 5px rgba(63, 216, 211, 0.08);
+  box-shadow: inset 0 0 10px 3px rgba(63, 216, 211, 0.08);
   background-color: #020b0b;
   color: #3fd8d3;
   border-radius: 10px;
@@ -466,6 +464,10 @@ Cards
   border: 3px solid #3fd8d3;
 }
 
+img {
+  border-radius: 50%;
+}
+
 .card-modal {
   text-align: center;
 }
@@ -482,7 +484,7 @@ Cards
   position: relative;
   width: 134px;
   height: 134px;
-  margin: 0 auto;
+  margin: 5px auto;
   background-color: #020b0b;
   border: 3px solid #3fd8d3;
 }
@@ -551,7 +553,7 @@ Modal
 
 .modal-clip {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   align-self: center;
@@ -568,6 +570,7 @@ Modal
 }
 .modal-clip .modal-btns {
   align-self: flex-end;
+  margin-top: auto;
 }
 
 @media (min-width: 768px) {
@@ -588,6 +591,9 @@ Modal
     align-self: flex-start;
     margin-bottom: 0;
   }
+  .modal-clip .modal-btns {
+    margin-top: 0;
+  }
 }
 /*----------------------
 Inputs and Buttons
@@ -601,7 +607,7 @@ button, input, select, .counter {
   border-radius: 5px;
   background-color: #0b3634;
 }
-button:hover, button:focus, input:hover, input:focus, select:hover, select:focus, .counter:hover, .counter:focus {
+button:hover, button:focus, button:active, input:hover, input:focus, input:active, select:hover, select:focus, select:active, .counter:hover, .counter:focus, .counter:active {
   transition: all 0.2s ease-out;
   background-color: #3fd8d3;
   color: #020b0b;

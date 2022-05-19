@@ -7,9 +7,11 @@ Cards
 .card {
   background-color: $color-bg;
   caret-color: transparent;
-  .card-images,
-  .card-text-1,
-  .card-text-2 {
+  .card-text,
+  .card-text-2,
+  .card-city,
+  .card-name,
+  .card-images {
     pointer-events: none;
   }
   .card-email {
@@ -18,7 +20,7 @@ Cards
 }
 
 .card-row, .card-grid {
-  box-shadow: inset 0 0 15px 5px rgba($color-primary, .08);
+  box-shadow: inset 0 0 10px 3px rgba($color-primary, .08);
   background-color: $color-bg;
   color: $color-primary;
   border-radius: 10px;
@@ -58,6 +60,7 @@ Cards
   .card-text-2 {
     display: none;
   }
+
   .card-images img {
     margin: 0 auto;
     margin-bottom: 5px;
@@ -65,12 +68,11 @@ Cards
   } 
 }
 
-// .card-text-1, .card-text-2 {
-//   opacity: 0;
-// }
+img {
+  border-radius: 50%;
+}
 
 .card-modal {
-  
   text-align: center;
 
   .card-img-tmb,
@@ -88,7 +90,7 @@ Cards
     position: relative;
     width: 134px;
     height: 134px;
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: $color-bg;
     border: 3px solid $color-primary;
     img {

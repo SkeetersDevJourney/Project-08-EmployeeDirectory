@@ -21,7 +21,7 @@ Modal
 .modal-clip {
   @include flexboi(
     flex,
-    space-between,
+    flex-start,
     center,
     column
   );
@@ -40,6 +40,7 @@ Modal
 
   .modal-btns {
     align-self: flex-end;
+    margin-top: auto;
   }
 }
 
@@ -59,6 +60,9 @@ Modal
       width: 100%;
       align-self: flex-start;
       margin-bottom: 0;
+    }
+    .modal-btns {
+      margin-top: 0;
     }
   }
 }

@@ -26,4 +26,7 @@ a, p {
 a {
   text-decoration: none;
   color: $color-secondary;
+  &:hover {
+    color: lighten($color-secondary, 20%);
+  }
 }

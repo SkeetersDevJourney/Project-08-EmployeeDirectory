@@ -1,8 +1,12 @@
 /*----------------------
-Main
+Main Grid
 ----------------------*/
 
 @use "../util" as *;
+
+html {
+  background-color: lighten($color-bg, 10%);
+}
 
 .header-container, .directory-container {
   max-width: 1200px;

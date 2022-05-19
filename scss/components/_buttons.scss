@@ -12,7 +12,7 @@ button, input, select, .counter {
   border: none;
   border-radius: 5px;
   background-color: lighten($color-bg, 10%);
-  &:hover, &:focus {
+  &:hover, &:focus, &:active {
     transition: all .2s ease-out;
     background-color: $color-primary;
     color: $color-bg;
