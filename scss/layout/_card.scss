@@ -1,11 +1,11 @@
 /*----------------------
-Cards and Modal
+Cards
 ----------------------*/
 
 @use "../util" as *;
 
 .card {
-  background-color: lavender;
+  background-color: $color-bg;
   caret-color: transparent;
   .card-images,
   .card-text-1,
@@ -15,42 +15,18 @@ Cards and Modal
   .card-email {
     pointer-events: all;
   }
-  border-radius: 10px;
 }
 
-.modal-clip-insert {
-  @include flexboi(
-    flex,
-    flex-start,
-    flex-start,
-    column
-  );
-  width: 240px; 
-  height: 365px;
-  margin: 5px auto;
-  background-color: lightgreen;
-  clip-path: polygon(0% 0%, 190px 0%, 100% 50px, 100% 100%, 50px 100%, 0% 315px);
+.card-row, .card-grid {
+  box-shadow: inset 0 0 15px 5px rgba($color-primary, .08);
+  background-color: $color-bg;
+  color: $color-primary;
   border-radius: 10px;
-
-  .modal-card-insert {
-    align-self: center;
-    margin-bottom: auto;
+  &:hover {
+    transition: all .2s ease-out;
+    border-left: 10px solid $color-primary;
+    border-radius: 0 10px 10px 0;
   }
-
-  .modal-btns {
-    align-self: flex-end;
-  }
-  
-}
-
-.modal {
-  width: 250px; 
-  height: 375px;
-  padding: 0;
-  overflow: hidden;
-  border: none;
-  clip-path: polygon(0% 0%, 198px 0%, 100% 52px, 100% 100%, 52px 100%, 0% 323px);
-  border-radius: 10px;
 }
 
 .card-row {
@@ -67,10 +43,14 @@ Cards and Modal
     center,
     $gap: 10px
   );
-  padding: 5px;
+  border-radius: 10px;
+  padding: 7px 7px 7px 10px;
 }
 
 .card-grid {
+  text-align: center;
+  padding: 10px;
+  
   .card-img-tmb,
   .card-img-lg,
   .card-email,
@@ -80,21 +60,28 @@ Cards and Modal
   }
   .card-images img {
     margin: 0 auto;
-  }
-  text-align: center;
-  padding: 10px;
+    margin-bottom: 5px;
+    border: 3px solid $color-primary;
+  } 
 }
 
+// .card-text-1, .card-text-2 {
+//   opacity: 0;
+// }
+
 .card-modal {
+  
   text-align: center;
+
   .card-img-tmb,
   .card-img-med {
     display: none;
   }
+
   .card-text-1,
   .card-text-2 {
     padding: 5px 0;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid $color-primary;
   }
 
   .card-images {
@@ -102,8 +89,8 @@ Cards and Modal
     width: 134px;
     height: 134px;
     margin: 0 auto;
-    background-color: lavender;
-    border: 3px solid black;
+    background-color: $color-bg;
+    border: 3px solid $color-primary;
     img {
       position: relative;
       z-index: 2;
@@ -115,7 +102,7 @@ Cards and Modal
       bottom: -4px;
       width: 110px;
       height: 110px; 
-      background-color: lavender;
+      background-color: $color-bg;
     }
     &::after {
       content: '';
@@ -124,30 +111,12 @@ Cards and Modal
       right: -4px;
       width: 110px;
       height: 110px; 
-      background-color: lavender;
+      background-color: $color-bg;
     }
   }
 }
 
 @include mqboi('med') {
-  .modal {
-    width: 500px; 
-    height: 250px;
-    clip-path: polygon(0% 0%, 443px 0%, 100% 57px, 100% 100%, 57px 100%, 0% 193px);
-  }
-  
-  .modal-clip-insert {
-    justify-content: space-between;
-    width: 490px; 
-    height: 240px;
-    clip-path: polygon(0% 0%, 435px 0%, 100% 55px, 100% 100%, 55px 100%, 0% 185px);
-    .modal-card-insert {
-      width: 100%;
-      align-self: flex-start;
-      margin-bottom: 0;
-    }
-  }
-  
   .card-grid {
     .card-email,
     .card-city {
@@ -174,7 +143,5 @@ Cards and Modal
       border: none;
     }
   }
-
-  
 }
 

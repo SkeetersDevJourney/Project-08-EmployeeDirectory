@@ -2,13 +2,20 @@
 Typography
 ----------------------*/
 
+@use "../util" as *;
+
 * {
   font-family: 'Titillium Web', sans-serif;
   font-weight: 400;
 }
 
+*, ::placeholder {
+  color: $color-primary;
+}
+
 h1, h2, h3, h4, h5 {
   font-weight: 700;
+  letter-spacing: .04em;
 }
 
 a, p {
@@ -18,4 +25,5 @@ a, p {
 
 a {
   text-decoration: none;
+  color: $color-secondary;
 }

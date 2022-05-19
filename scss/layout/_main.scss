@@ -4,9 +4,10 @@ Main
 
 @use "../util" as *;
 
-header {
-  background-color: grey;
+html {
+  background-color: lighten($color-bg, 10%);
 }
+
 
 img {
   border-radius: 50%;

@@ -19,7 +19,6 @@ Main
 }
 
 .row-layout {
-  background-color: salmon;
   @include gridboi(
     1fr,
     auto,
@@ -28,7 +27,6 @@ Main
 }
 
 .grid-layout {
-  background-color: lightblue;
   @include gridboi(
     1fr 1fr,
     auto,

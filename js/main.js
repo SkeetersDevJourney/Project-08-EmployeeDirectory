@@ -12,14 +12,26 @@ const peopleGrid = document.getElementById('grid-container');
 Initialization - Page Details / Classes
 -----------------------------------------*/
 
+const pageCounter = document.querySelector('.current-page');
+const totalPageCounter = document.querySelector('.total-page');
+const pageSelector = document.getElementById('page-selector');
+
 pageBegin = 0;
 pageLength = 12;
 
 currentPage = 1;
 totalPages = Math.ceil(numOfEmployees / pageLength);
+adjustPageCounter();
 
 let isFilterActive = false;
+let isModalOpen = false;
 currentCardLayout = 'grid';
+
+function adjustPageCounter() {
+  pageCounter.innerText = currentPage;
+  totalPageCounter.innerHTML = totalPages;
+  pageSelector.max = totalPages;
+}
 
 // logs number of data points for testing 
 function logPageData() {
@@ -62,6 +74,7 @@ function newFetchRequest() {
   totalPages = Math.ceil(numOfEmployees / pageLength);
   quantityInput.placeholder = numOfEmployees;
   fetchData();
+  adjustPageCounter();
 }
 
 // sets number of employees to the temp value  
@@ -132,6 +145,7 @@ rowLayoutBtn.addEventListener('click', () => {
     // number of employees shown when in row mode
     pageLength = 24;
     totalPages = Math.ceil(numOfEmployees / pageLength);
+    adjustPageCounter();
     
     // determines card class on generation
     currentCardLayout = 'row';
@@ -160,6 +174,7 @@ gridLayoutBtn.addEventListener('click', () => {
     // number of employees shown when in grid mode
     pageLength = 12;
     totalPages = Math.ceil(numOfEmployees / pageLength);
+    adjustPageCounter();
 
     // determines card class on generation
     currentCardLayout = 'grid';
@@ -175,13 +190,16 @@ gridLayoutBtn.addEventListener('click', () => {
   }
 })
 
-/*------ Page Left and Right ------*/
+/*------ Change Page and Select Page ------*/
 
 const pageLeftBtn = document.querySelector('.page-left-btn');
 const pageRightBtn = document.querySelector('.page-right-btn');
 
 pageLeftBtn.addEventListener('click', () => {
   previousPage();
+});
+pageRightBtn.addEventListener('click', () => {
+  nextPage();
 });
 
 function previousPage() {
@@ -195,11 +213,8 @@ function previousPage() {
     }
     logPageData();
   }
+  adjustPageCounter();
 }
-
-pageRightBtn.addEventListener('click', () => {
-  nextPage();
-});
 
 function nextPage() {
   if (currentPage < totalPages) {
@@ -212,6 +227,36 @@ function nextPage() {
     }
     logPageData();
   }
+  adjustPageCounter();
+}
+
+pageSelector.addEventListener('keyup', (e) => {
+  let userPageInput = pageSelector.value;
+  if (e.key == 'Enter' || e.key == ' ') {
+    if (userPageInput >= 1 && userPageInput <= pageSelector.max) {
+      goToPage(userPageInput);
+      pageSelector.placeholder = `...${userPageInput}`;
+      pageSelector.blur();
+    } else {
+      pageSelector.value = '';
+      pageSelector.placeholder = 'N/A';
+      setTimeout(() => {pageSelector.placeholder = '#...'}, 1500)
+      pageSelector.blur();
+    }
+  }
+})
+
+
+function goToPage(input) {
+  pageBegin = pageLength * (input - 1);
+  currentPage = input;
+  if (isFilterActive) {
+    generateHTML(filteredArray)
+  } else {
+    generateHTML(employeeData)
+  }
+  logPageData();
+  adjustPageCounter();
 }
 
 /*-----------------------------
@@ -300,8 +345,9 @@ function search() {
   });
   
   if (userInput == '') {
-    currentPage = 1;
     pageBegin = 0;
+    currentPage = 1;
+    
     totalPages = Math.ceil(numOfEmployees / pageLength);
     isFilterActive = false;
     generateHTML(employeeData);
@@ -317,7 +363,7 @@ function search() {
 }
 
 /*-----------------------------
-Modals
+Modal
 -----------------------------*/
 
 const modalInsert = document.querySelector('.modal-card-insert');
@@ -328,7 +374,6 @@ const previousModalBtn = document.querySelector('.previous-modal-btn');
 const nextModalBtn = document.querySelector('.next-modal-btn');
 
 let currentCardId;
-let isModalOpen = false;
 
 // show modal on card click
 peopleGrid.addEventListener('click', (e) => {
@@ -417,6 +462,5 @@ function openNextModal() {
     currentCardId = peopleGrid.firstElementChild.id;
     modalInsert.innerHTML = nextModal.outerHTML;
     changeModalClasses(modalInsert);
-    
   }
 }

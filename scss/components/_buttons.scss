@@ -4,25 +4,67 @@ Inputs and Buttons
 
 @use "../util" as *;
 
-button, input, select {
-  height: 36px;
+button, input, select, .counter {
+  min-height: 36px;
   margin: 0;
-  outline: none;
   padding: 0;
+  outline: none;
   border: none;
+  border-radius: 5px;
+  background-color: lighten($color-bg, 10%);
+  &:hover, &:focus {
+    transition: all .2s ease-out;
+    background-color: $color-primary;
+    color: $color-bg;
+  }
 }
 
 button {
-  width: 36px;
+  cursor: pointer;
+  caret-color: transparent;
+  min-width: 36px;
+  &:hover {
+    transition: all .2s ease-out;
+    background-color: $color-primary;
+    color: $color-bg;
+    i {
+      color: $color-bg;
+    }
+  }
 }
 
-.generate-btn {
-  width: initial;
+.generate-btn, #quantity-selector, #page-selector {
+  width: 76px;
   padding: 0.5em;
 }
 
-#quantity-selector {
-  text-align: center;
+.paging-btns, .page-select-btns, .layout-theme-options {
+  @include flexboi(
+    flex, 
+    space-between,
+    center,
+    $gap: 4px
+  );
 }
+
+.counter {
+  text-align: center;
+  width: 36px;
+  min-height: 36px;
+  line-height: 36px;
+}
+
+#page-selector {
+  &:hover, &:focus {
+    transition: all .2s ease-out;
+    background-color: lighten($color-bg, 10%);
+    color: $color-primary;
+  }
+}
+
+
+
+
+
 
 

@@ -11,15 +11,15 @@
   <!-- font-family: 'Titillium Web', sans-serif; -->
 
 
+  <link rel="icon" href="img/title-icon.ico">
   <link rel="stylesheet" href="css/style.css">
 
   <script src="https://kit.fontawesome.com/2365d2b9a6.js" crossorigin="anonymous"></script>
 
-  <!--Change Icon-->
   <title>Employee Directory</title>
 
 </head>
-<body> <!-- Keep simple for submission -->
+<body>
 
   <!---------------------------
   --          Header         --
@@ -30,34 +30,21 @@
       <div class="options">
         <div class="search-quantity-options">
           <!--------- Search Bar --------->
-            <div class="search-container"
-          <label for="searchBar">Search for Users:</label>
-            <input id="searchBar" class="user-search" type="search" autocomplete="off">
+            <div class="search-container">
+            <input  id="searchBar" 
+                    class="user-search" 
+                    type="search"
+                    placeholder="Search for Employee"
+                    autocomplete="off">
           </div>
 
           <!--------- Quantity Selector --------->
           <div class="quantity-option">
-            <label for="quantity-selector"># of Employees:</label>
-            <input type="number" id="quantity-selector" min="10" max="5000">
+            <label for="quantity-selector">Number of Employees:</label>
+            <input type="number" id="quantity-selector" min="10" max="5000"/>
             <button class="generate-btn">Generate</button>
-          </div>
-        </div>
 
-        
-        <div class="view-options">
-
-          <!--------- Turn Page --------->
-          <div class="paging-btns">
-            <button class="page-left-btn">
-              <i class="fa-solid fa-caret-left"></i>
-            </button>
-            <button class="page-right-btn">
-              <i class="fa-solid fa-caret-right"></i>
-            </button>
-          </div>
-
-          <!--------- Layout --------->
-          <div class="layout-theme-options">
+            <!--------- Layout --------->
             <button id="layout-rows-btn">
               <i class="fa-solid fa-align-justify"></i>
             </button> 
@@ -65,6 +52,32 @@
               <i class="fa-solid fa-table-cells"></i>
             </button>
           </div>
+        </div>
+        
+        <div class="view-options">
+
+          <!--------- Page Count / Btns --------->
+          <div class="paging-btns">
+            <button class="page-left-btn" title="Row Layout">
+              <i class="fa-solid fa-caret-left"></i>
+            </button>
+            <button class="page-right-btn">
+              <i class="fa-solid fa-caret-right"></i>
+            </button>
+          </div>
+          <div class="page-select-btns">
+            <p>Page:</p>
+            <div class="counter current-page"></div>
+            <p>of</p>
+            <div class="counter total-page"></div>
+            <input  type="number" 
+                    id="page-selector" 
+                    min="1" 
+                    max="#" 
+                    placeholder="#..."/>
+          </div>
+
+          
         </div>
       </div>
     </div>
@@ -86,17 +99,21 @@
 
     <!--------- Modal --------->
     <section class="modal-template-container">
+
       <!--  dynamically alter the info here when 
             displaying modals. -->
       <dialog class="modal">
-        <div class="modal-clip-insert">
+        <div class="modal-clip">
+
           <button class="close-modal-btn">
             <i class="fa-solid fa-xmark fa-lg"></i>
           </button>
+
           <div class="modal-card-insert">
             <!-- insert modal info -->
           </div>
           <div class="modal-btns">
+
             <button class="previous-modal-btn">
               <i class="fa-solid fa-caret-left fa-xl"></i>
             </button>
@@ -104,8 +121,10 @@
               <i class="fa-solid fa-caret-right fa-xl"></i>
             </button>
           </div>
+
         </div>
       </dialog>
+
     </section>
 
   </main>
