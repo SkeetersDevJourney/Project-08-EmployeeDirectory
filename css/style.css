@@ -551,67 +551,6 @@ img {
   }
 }
 /*----------------------
-Modal
-----------------------*/
-.modal {
-  overflow: hidden;
-  width: 275px;
-  height: 400px;
-  padding: 0;
-  background-color: #3fd8d3;
-  border: none;
-  clip-path: polygon(0% 0%, 218px 0%, 100% 57px, 100% 100%, 57px 100%, 0% 343px);
-  border-radius: 10px;
-}
-.modal::backdrop {
-  background: rgba(2, 11, 11, 0.9);
-}
-
-.modal-clip {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  align-self: center;
-  margin: 5px auto;
-  margin-bottom: auto;
-  width: 265px;
-  height: 390px;
-  background-color: #020b0b;
-  clip-path: polygon(0% 0%, 210px 0%, 100% 55px, 100% 100%, 55px 100%, 0% 335px);
-  border-radius: 10px;
-}
-.modal-clip .close-modal-btn {
-  align-self: flex-start;
-}
-.modal-clip .modal-btns {
-  align-self: flex-end;
-  margin-top: auto;
-}
-
-@media (min-width: 768px) {
-  .modal {
-    width: 500px;
-    height: 250px;
-    clip-path: polygon(0% 0%, 443px 0%, 100% 57px, 100% 100%, 57px 100%, 0% 193px);
-  }
-
-  .modal-clip {
-    justify-content: space-between;
-    width: 490px;
-    height: 240px;
-    clip-path: polygon(0% 0%, 435px 0%, 100% 55px, 100% 100%, 55px 100%, 0% 185px);
-  }
-  .modal-clip .modal-card-insert {
-    width: 100%;
-    align-self: flex-start;
-    margin-bottom: 0;
-  }
-  .modal-clip .modal-btns {
-    margin-top: 0;
-  }
-}
-/*----------------------
 Inputs and Buttons
 ----------------------*/
 button, input, select, .counter {
@@ -623,7 +562,7 @@ button, input, select, .counter {
   border-radius: 5px;
   background-color: #0b3634;
 }
-button:hover, button:focus, button:active, input:hover, input:focus, input:active, select:hover, select:focus, select:active, .counter:hover, .counter:focus, .counter:active {
+button:hover, button:focus, input:hover, input:focus, select:hover, select:focus, .counter:hover, .counter:focus {
   transition: all 0.2s ease-out;
   background-color: #3fd8d3;
   color: #020b0b;
@@ -688,5 +627,63 @@ button:hover i {
 /*----------------------
 Modal
 ----------------------*/
+.modal {
+  overflow: hidden;
+  width: 275px;
+  height: 400px;
+  padding: 0;
+  background-color: #3fd8d3;
+  border: none;
+  clip-path: polygon(0% 0%, 218px 0%, 100% 57px, 100% 100%, 57px 100%, 0% 343px);
+  border-radius: 10px;
+}
+.modal::backdrop {
+  background: rgba(2, 11, 11, 0.9);
+}
+
+.modal-clip {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  align-self: center;
+  margin: 5px auto;
+  margin-bottom: auto;
+  width: 265px;
+  height: 390px;
+  background-color: #020b0b;
+  clip-path: polygon(0% 0%, 210px 0%, 100% 55px, 100% 100%, 55px 100%, 0% 335px);
+  border-radius: 10px;
+}
+.modal-clip .close-modal-btn {
+  align-self: flex-start;
+}
+.modal-clip .modal-btns {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 500px;
+    height: 250px;
+    clip-path: polygon(0% 0%, 443px 0%, 100% 57px, 100% 100%, 57px 100%, 0% 193px);
+  }
+
+  .modal-clip {
+    justify-content: space-between;
+    width: 490px;
+    height: 240px;
+    clip-path: polygon(0% 0%, 435px 0%, 100% 55px, 100% 100%, 55px 100%, 0% 185px);
+  }
+  .modal-clip .modal-card-insert {
+    width: 100%;
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
+  .modal-clip .modal-btns {
+    margin-top: 0;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

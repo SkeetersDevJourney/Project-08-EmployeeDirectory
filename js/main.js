@@ -377,7 +377,6 @@ let currentCardId;
 
 // show modal on card click
 peopleGrid.addEventListener('click', (e) => {
-  
   // target check to allow access to email 
   // without opening modal
   if (e.target.classList.contains('card')) {
@@ -385,6 +384,7 @@ peopleGrid.addEventListener('click', (e) => {
     modalInsert.innerHTML = e.target.outerHTML;
     changeModalClasses(modalInsert);
     modal.showModal();
+    closeModalBtn.blur();
     isModalOpen = true;
   }
 });
