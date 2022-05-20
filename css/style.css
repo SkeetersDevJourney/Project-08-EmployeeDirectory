@@ -489,10 +489,17 @@ img {
   border: 3px solid #3fd8d3;
 }
 .card-modal .card-images img {
+  pointer-events: auto;
   position: relative;
   z-index: 2;
 }
+.card-modal .card-images img:hover {
+  transform: scale(1.1);
+  outline: 3px solid #3fd8d3;
+  transition: all 0.1s ease-in;
+}
 .card-modal .card-images::before {
+  transition: left 0.1s;
   content: "";
   position: absolute;
   left: -4px;
@@ -502,6 +509,7 @@ img {
   background-color: #020b0b;
 }
 .card-modal .card-images::after {
+  transition: right 0.1s;
   content: "";
   position: absolute;
   top: -4px;
@@ -509,6 +517,14 @@ img {
   width: 110px;
   height: 110px;
   background-color: #020b0b;
+}
+.card-modal .card-images:hover::before {
+  transition: left 0.4s;
+  left: 22px;
+}
+.card-modal .card-images:hover::after {
+  transition: right 0.4s;
+  right: 22px;
 }
 
 @media (min-width: 768px) {
@@ -627,8 +643,12 @@ button:hover i {
   color: #020b0b;
 }
 
+#layout-rows-btn {
+  margin-left: auto;
+}
+
 .generate-btn, #quantity-selector, #page-selector {
-  width: 76px;
+  min-width: 76px;
   padding: 0.5em;
 }
 
@@ -652,6 +672,19 @@ button:hover i {
   color: #3fd8d3;
 }
 
+#hide-label {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #hide-label {
+    display: initial;
+  }
+
+  #layout-rows-btn {
+    margin-left: initial;
+  }
+}
 /*----------------------
 Modal
 ----------------------*/

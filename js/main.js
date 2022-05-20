@@ -4,7 +4,8 @@ Initial Employees to Generate + API URL
 
 let numOfEmployees = 30;
 
-// max possible allowed to generate = 5000
+// max possible allowed to 
+// as per random user API generate = 5000
 let userApiURL = `https://randomuser.me/api/?results=${numOfEmployees}&inc=name, picture, email, location, phone, dob &noinfo &nat=US`;
 const peopleGrid = document.getElementById('grid-container');
 
@@ -235,14 +236,13 @@ pageSelector.addEventListener('keyup', (e) => {
   if (e.key == 'Enter' || e.key == ' ') {
     if (userPageInput >= 1 && userPageInput <= pageSelector.max) {
       goToPage(userPageInput);
-      pageSelector.placeholder = `...${userPageInput}`;
-      pageSelector.blur();
+      pageSelector.placeholder = `...${userPageInput}`; 
     } else {
       pageSelector.value = '';
       pageSelector.placeholder = 'N/A';
       setTimeout(() => {pageSelector.placeholder = '#...'}, 1500)
-      pageSelector.blur();
     }
+    pageSelector.blur();
   }
 })
 

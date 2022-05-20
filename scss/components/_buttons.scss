@@ -33,8 +33,12 @@ button {
   }
 }
 
+#layout-rows-btn {
+  margin-left: auto;
+}
+
 .generate-btn, #quantity-selector, #page-selector {
-  width: 76px;
+  min-width: 76px;
   padding: 0.5em;
 }
 
@@ -61,6 +65,20 @@ button {
     color: $color-primary;
   }
 }
+
+#hide-label {
+  display: none;
+}
+
+@include mqboi('med') {
+  #hide-label {
+    display: initial;
+  }
+  #layout-rows-btn {
+    margin-left: initial;
+  }
+}
+
 
 
 
