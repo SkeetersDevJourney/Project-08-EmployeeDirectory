@@ -1,5 +1,5 @@
 
-# Project-08 Employee Directory w/ API
+# Project-08 Employee Directory using an API
 
 Course: Treehouse Front-End Web Development Techdegree.
 This project serves to establish a foundation in communicating with APIs.
