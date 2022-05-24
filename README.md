@@ -1,8 +1,10 @@
 
-# Project-08 Employee Directory using an API
+# Employee Directory using an API
 
-Course: Treehouse Front-End Web Development Techdegree.
+Course: Project 8 for the Treehouse Front-End Web Development Techdegree.
 This project serves to establish a foundation in communicating with APIs.
+
+Pages Link: https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/
 
 ## Description
 
