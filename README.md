@@ -4,7 +4,7 @@
 Course: Project 8 for the Treehouse Front-End Web Development Techdegree.
 This project serves to establish a foundation in communicating with APIs.
 
-Pages Link: https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/
+GH-Pages Link: https://skeetersdevjourney.github.io/Project-08-EmployeeDirectory/
 
 ## Description
 
